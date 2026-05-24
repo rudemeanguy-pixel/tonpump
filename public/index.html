@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TONPUMP</title>
+  <script src="https://unpkg.com/@tonconnect/ui@2.0.9/dist/tonconnect-ui.min.js"></script>
+  <style>
+    body { font-family: system-ui, -apple-system, sans-serif; background: #0a0a0f; color: #fff; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+    .container { text-align: center; padding: 2rem; background: #151520; border-radius: 16px; width: 90%; max-width: 420px; box-shadow: 0 8px 30px rgba(0,0,0,0.4); }
+    h1 { color: #0098EA; margin: 0 0 0.5rem; font-size: 2rem; }
+    p { color: #888; margin-bottom: 1.5rem; }
+    #connect-wallet { margin-top: 1rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🚀 TONPUMP</h1>
+    <p>Decentralized Meme Coin Launchpad</p>
+    <div id="connect-wallet"></div>
+  </div>
+  <script>
+    const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
+      manifestUrl: 'https://your-domain.com/tonconnect-manifest.json',
+      buttonRootId: 'connect-wallet'
+    });
+    tonConnectUI.onStatusChange(wallet => {
+      if (wallet) console.log('Connected:', wallet);
+    });
+  </script>
+</body>
+</html>
